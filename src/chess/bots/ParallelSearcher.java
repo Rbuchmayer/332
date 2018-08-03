@@ -45,35 +45,38 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
     	@Override
     	protected BestMove<M> compute() {
     		
-	    	if (moves.isEmpty()) {
-	    		if (board.inCheck() ) {
-	    			return new BestMove<M>(-evaluator.mate() - depth);
-	    		} else {
-	    			return new BestMove<M>(-evaluator.stalemate());
-	    		}
-	    	}
-    		
-    		if (depth <= cutoff) {
+    		if (depth <= cutoff || moves.isEmpty()) {
     			return SimpleSearcher.minimax(evaluator, board, depth);
-    		}
-    		if (hi - lo <= divideCutoff) {
+    		} else if (hi - lo <= divideCutoff) {
     			BestMove<M> max = new BestMove<M>(-evaluator.infty());
+    			SearchTask<M, B>[] tasks = new SearchTask[hi - lo];
     			
     			for (int i = lo; i < hi; i++) {
     				board.applyMove(moves.get(i));
+    				List<M> newMoves = board.generateMoves();
     				
-    				BestMove<M> bMove = new SearchTask(evaluator, board, depth, lo, mid, moves);
+    				tasks[i - lo] = new SearchTask<M, B>(evaluator, board.copy(), depth - 1, 0, newMoves.size(), newMoves);
+    				tasks[i - lo].fork();
     						
     				board.undoMove();
     				
     			}
     			
+    			for (int i = lo; i < hi; i++) {
+    				
+    				BestMove<M> bMove = tasks[i - lo].join().negate();
+    	    		if (bMove.value > max.value) {
+    	    			max = bMove;
+    	    		}
+    				
+    			}
+    			return max;
     			
     			
     		}
     		int mid = lo + (hi - lo) / 2;
-    		SearchTask left = new SearchTask(evaluator, board, depth, lo, mid, moves);
-    		SearchTask right = new SearchTask(evaluator, board, depth, mid, hi, moves);
+    		SearchTask<M, B> left = new SearchTask<M, B>(evaluator, board.copy(), depth, lo, mid, moves);
+    		SearchTask<M, B> right = new SearchTask<M, B>(evaluator, board.copy(), depth, mid, hi, moves);
     		
     		left.fork();
     		
