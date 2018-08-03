@@ -42,14 +42,15 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
     		this.moves = moves;
     	}
     	
-    	@Override
+    	@SuppressWarnings("unchecked")
+		@Override
     	protected BestMove<M> compute() {
     		
     		if (depth <= cutoff || moves.isEmpty()) {
     			return SimpleSearcher.minimax(evaluator, board, depth);
     		} else if (hi - lo <= divideCutoff) {
     			BestMove<M> max = new BestMove<M>(-evaluator.infty());
-    			SearchTask<M, B>[] tasks = new SearchTask[hi - lo];
+				SearchTask<M, B>[] tasks = new SearchTask[hi - lo];
     			
     			for (int i = lo; i < hi; i++) {
     				board.applyMove(moves.get(i));
@@ -67,6 +68,7 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
     				BestMove<M> bMove = tasks[i - lo].join().negate();
     	    		if (bMove.value > max.value) {
     	    			max = bMove;
+    	    			max.move = moves.get(i);
     	    		}
     				
     			}
