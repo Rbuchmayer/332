@@ -3,19 +3,23 @@
 
 ## Project Enjoyment ##
 - How Was Your Partnership?
-  <pre>TODO</pre>
+  We were both busy during this project but still managed to communicate
+  and work well together.
   
 - What was your favorite part of the project?
-  <pre>TODO</pre>
+  My favorite part was implementing the AlphaBeta and noticing how 
+  much of a difference it made compared to the other algorithms.
 
 - What was your least favorite part of the project?
-  <pre>TODO</pre>
+  This project took us a little longer to debug than the other projects.
 
 - How could the project be improved?
   <pre>TODO</pre>
 
 - Did you enjoy the project?
-  <pre>TODO</pre>
+  Yes, I thought there was a good amount of interesting algorithms that 
+  we implemented. It was cool to see how they are applied to games like 
+  chess and tic tac toe.
     
 -----
 
@@ -28,9 +32,15 @@
 Suppose your bot goes 3-ply deep.  How many game tree nodes do you think
 it explores (we're looking for an order of magnitude) if:
  - ...you're using minimax?
-    <pre>TODO</pre>
+   If there are about 35 possible moves on average for any state in a game of chess and 
+   minimax visits every node, then there should be about 35^3 nodes visited for 3-ply deep.
+   This is on the order of about 10^4 nodes.
  - ...you're using alphabeta?
-    <pre>TODO</pre>
+    Since alphaBeta does not necessarily need to explore every node in a branch, it will 
+    explore significantly less nodes than minimax. When testing 4-ply, alphaBeta took about
+    1/6 the time of minimax. If this correlates to the number of nodes explored, then alphaBeta
+    probably would explore around 1/2 of the nodes that minimax explored. So alphaBeta would 
+    explore around 18^3 nodes, which is on the magnitude of 10^4. 
 
 #### Results ####
 Run an experiment to determine the actual answers for the above.  To run
@@ -46,21 +56,23 @@ the experiment, do the following:
    implementation).  Make a pretty graph of your results (link to it from
    here) and fill in the table here as well:
 
-<pre>TODO: Fill in the table below</pre>
 
-
-|      Algorithm     | 1-ply | 2-ply | 3-ply | 4-ply | 5-ply |
+|      Algorithm     | 1-ply    | 2-ply     | 3-ply      | 4-ply          | 5-ply |
 | :----------------: |:-----:|:-----:|:-----:|:-----:|:-----:|
-|       Minimax      |       |       |       |       |       |
-|  Parallel Minimax  |       |       |       |       |       |
-|      Alphabeta     |       |       |       |       |       |
+|       Minimax      |   31    |   810    |    26104   |   865412    |   31064822    |
+|  Parallel Minimax  |   31    |   810    |    26104   |    865412   |    31064822   |
+|      Alphabeta     |   31    |    387   |    4980   |    53809   |   609477    |
 
 
 #### Conclusions ####
 How close were your estimates to the actual values?  Did you find any
 entry in the table surprising?  Based ONLY on this table, do you feel
 like there is a substantial difference between the three algorithms?
-<pre>TODO</pre>
+
+Our conclusions were on similar magnitudes as our estimates. Parallel minimax
+and minimax have the same number of nodes because they are the same algorithm,
+just one uses parallelism. AlphaBeta is clearly much faster as it looks at less
+nodes. I was surprised at how fast alphaBeta was at ply 4 and 5.  
 
 ### Optimizing Experiments ###
 THE EXPERIMENTS IN THIS SECTION WILL TAKE A LONG TIME TO RUN. 
