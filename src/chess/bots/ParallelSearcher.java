@@ -8,7 +8,6 @@ import cse332.chess.interfaces.AbstractSearcher;
 import cse332.chess.interfaces.Board;
 import cse332.chess.interfaces.Evaluator;
 import cse332.chess.interfaces.Move;
-import cse332.exceptions.NotYetImplementedException;
 
 
 public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
@@ -21,14 +20,21 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
         return parallel(this.evaluator, board, ply).move;
     }
     
-    public <M extends Move<M>, B extends Board<M, B>> BestMove<M> parallel(Evaluator<B> evaluator, B board, int depth) {
+    
+	@SuppressWarnings("hiding")
+	public <M extends Move<M>, B extends Board<M, B>> BestMove<M> parallel(Evaluator<B> evaluator, B board, int depth) {
     	List<M> moves = board.generateMoves();
-    	return POOL.invoke(new SearchTask(evaluator, board, depth, 0, moves.size(), moves));
+    	return  POOL.invoke(new SearchTask<M, B>(evaluator, board, depth, 0, moves.size(), moves));
     }
     
-    private class SearchTask<M extends Move<M>, B extends Board<M, B>> extends RecursiveTask<BestMove<M>> {
+    @SuppressWarnings("hiding")
+	private class SearchTask<M extends Move<M>, B extends Board<M, B>> extends RecursiveTask<BestMove<M>> {
     	
-    	Evaluator<B> evaluator;
+    	/**
+		 * 
+		 */
+		private static final long serialVersionUID = 1L;
+		Evaluator<B> evaluator;
     	B board;
     	int depth, lo, hi;
     	List<M> moves;

@@ -25,6 +25,7 @@ public class MinimaxTests extends SearcherTests {
 	    
         test("depth2", TestingInputs.FENS_TO_TEST.length);
         test("depth3", TestingInputs.FENS_TO_TEST.length);
+       
 		
 		finish();
 	} 
