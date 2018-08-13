@@ -9,7 +9,6 @@ public class JamboreeSearcher<M extends Move<M>, B extends Board<M, B>> extends
         AbstractSearcher<M, B> {
 
     public M getBestMove(B board, int myTime, int opTime) {
-		return null;
-        
+        throw new NotYetImplementedException();
     }
 }
