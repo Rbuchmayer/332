@@ -14,7 +14,7 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
         AbstractSearcher<M, B> {
 	
 	private static final ForkJoinPool POOL = new ForkJoinPool();
-	protected static int divideCutoff = 5;
+	protected final static int divideCutoff = 5;
 	
     public M getBestMove(B board, int myTime, int opTime) {
         return parallel(this.evaluator, board, ply).move;
