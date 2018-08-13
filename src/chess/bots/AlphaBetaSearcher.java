@@ -13,8 +13,7 @@ public class AlphaBetaSearcher<M extends Move<M>, B extends Board<M, B>> extends
 
     public M getBestMove(B board, int myTime, int opTime) {
         /* Calculate the best move */
-        BestMove<M> best = alphaBeta(this.evaluator, board, new BestMove<M>(-evaluator.infty()), evaluator.infty(), this.ply);
-        return best.move;
+        return alphaBeta(this.evaluator, board, new BestMove<M>(-evaluator.infty()), evaluator.infty(), this.ply).move;
     }
     
     static <M extends Move<M>, B extends Board<M, B>> BestMove<M> alphaBeta(Evaluator<B> evaluator, B board, BestMove<M> move, int beta, int depth) {

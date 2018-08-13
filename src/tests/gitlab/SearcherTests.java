@@ -12,6 +12,7 @@ import tests.gitlab.TestingInputs;
 import java.util.Arrays;
 
 public abstract class SearcherTests extends TestsUtility {
+	
     protected static Searcher<ArrayMove, ArrayBoard> STUDENT;
 
     protected static ArrayMove getBestMove(String fen, Searcher<ArrayMove, ArrayBoard> searcher, int depth, int cutoff) {
