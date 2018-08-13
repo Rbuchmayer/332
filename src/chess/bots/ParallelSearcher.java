@@ -89,7 +89,7 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
     		left.fork();
     		
     		BestMove<M> rightResult = right.compute();
-    		BestMove<M> leftResult = (BestMove<M>) left.join();
+    		BestMove<M> leftResult =  left.join();
     		
     		if (leftResult.value > rightResult.value) {
     			return leftResult;
