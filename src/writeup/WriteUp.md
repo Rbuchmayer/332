@@ -14,7 +14,8 @@
   This project took us a little longer to debug than the other projects.
 
 - How could the project be improved?
-  <pre>TODO</pre>
+  Change the type of tests needed to do (maybe on a simplified chest board) 
+  so the tests take less time, or maybe do something on parallized tests.
 
 - Did you enjoy the project?
   Yes, I thought there was a good amount of interesting algorithms that 
