@@ -12,7 +12,7 @@ import cse332.chess.interfaces.Move;
  */
 public class SimpleSearcher<M extends Move<M>, B extends Board<M, B>> extends
         AbstractSearcher<M, B> {
-	public static int nodes = 0;
+	//public static int nodes = 0;
     public M getBestMove(B board, int myTime, int opTime) {
         /* Calculate the best move */
         BestMove<M> best = minimax(this.evaluator, board, ply);
@@ -37,7 +37,7 @@ public class SimpleSearcher<M extends Move<M>, B extends Board<M, B>> extends
 	    	}
 	    	
 	    	for (M move: moves) {
-	    		nodes++;
+	    		//nodes++;
 	    		board.applyMove(move);
 	    		BestMove<M> bMove = minimax(evaluator, board, depth - 1).negate();
 	    		

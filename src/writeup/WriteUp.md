@@ -56,12 +56,17 @@ the experiment, do the following:
    implementation).  Make a pretty graph of your results (link to it from
    here) and fill in the table here as well:
 
+![](Minimax, Parallel Minimax, Alphabeta_ Ply 1.png)
+![](Minimax, Parallel Minimax, Alphabeta_ Ply 2.png)
+![](Minimax, Parallel Minimax, Alphabeta_ Ply 3.png)
+![](Minimax, Parallel Minimax, Alphabeta_ Ply 4.png)
+![](Minimax, Parallel Minimax, Alphabeta_ Ply 5.png)
 
 |      Algorithm     | 1-ply    | 2-ply     | 3-ply      | 4-ply          | 5-ply |
 | :----------------: |:-----:|:-----:|:-----:|:-----:|:-----:|
-|       Minimax      |   31    |   810    |    26104   |   865412    |   31064822    |
-|  Parallel Minimax  |   31    |   810    |    26104   |    865412   |    31064822   |
-|      Alphabeta     |   31    |    387   |    4980   |    53809   |   609477    |
+|       Minimax      |   29    |   933    |    31492  |    1061080  |   37224686  |
+|  Parallel Minimax  |   29    |   933    |    31492  |    1061080  |   37224686  |
+|      Alphabeta     |   29    |   372    |    6398   |    63343    |   721194    |
 
 
 #### Conclusions ####

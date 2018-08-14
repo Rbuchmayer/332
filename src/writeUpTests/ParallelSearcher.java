@@ -14,7 +14,7 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
 	
 	private static final ForkJoinPool POOL = new ForkJoinPool();
 	protected static int divideCutoff = 5;
-	public static int nodes = 0;
+	//public static int nodes = 0;
     public M getBestMove(B board, int myTime, int opTime) {
         return parallel(this.evaluator, board, ply).move;
     }
@@ -45,9 +45,9 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
     	protected BestMove<M> compute() {
     		
     		if (depth <= cutoff || moves.isEmpty()) {
-    			SimpleSearcher.nodes = 0;
+//    			SimpleSearcher.nodes = 0;
     			BestMove<M> best = SimpleSearcher.minimax(evaluator, board, depth);
-    			nodes += SimpleSearcher.nodes;
+//    			nodes += SimpleSearcher.nodes;
     			return best;
     		} else if (hi - lo <= divideCutoff) {
     			
@@ -55,7 +55,7 @@ public class ParallelSearcher<M extends Move<M>, B extends Board<M, B>> extends
 				SearchTask<M, B>[] tasks = new SearchTask[hi - lo];
     			
     			for (int i = lo; i < hi; i++) {
-    				nodes++;
+//    				nodes++;
     				board.applyMove(moves.get(i));
     				List<M> newMoves = board.generateMoves();
     				
