@@ -145,10 +145,25 @@ formalization of the traffic problem as a graph in this question.
   distance were factored in using the evaluation function.  If you wanted to use
   Dijkstra's Algorithm to solve this problem instead of Minimax, how would you
   formulate it as a graph?
-  <pre>TODO</pre>
+  <pre>
+ 	The vertex where we start at for the Dijkstra's would be the starting point.
+ 	From were we can go from the starting point are all connecting vertices, we
+ 	would make the labels connecting these vertices the ammount of time it would
+ 	take to go from one vertex to another.  To prevent taking dead ends we would 
+ 	make sure we set deadends to represent the equivalent of negative infinity.
+ 	(such as we did in chess for check)
+  </pre>
 
 - These two algorithms DO NOT optimize for the same thing.  (If they did,
   Dijkstra's is always faster; so, there would be no reason to ever use
   Minimax.)  Describe the difference in what each of the algorithms is
   optimizing for.  When will they output different paths?
-  <pre>TODO</pre>
+  <pre>
+  	The Minimax solution would minimize the ammount of traffic while staying
+  	under a certain ammount of time. But our Dijkstra's would pick the least 
+  	ammount of time path, without considering traffic.  In a case where there
+  	exists a longer path with less traffic under the time limit and a shorter 
+  	path with more traffic, the two algorithms will output different paths.
+  </pre>
+  
+ 
