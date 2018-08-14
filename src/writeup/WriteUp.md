@@ -92,8 +92,20 @@ Experimentally determine the best sequential cut-off for your
 parallel mini-max searcher.  You should test this at depth 5.  
 Plot your results and discuss which cut-offs work the best on each of
 your three boards.
-<pre>TODO: Do the experiment; discuss the results (possibly with pretty graphs!)</pre>
 
+Starting at a cut-off of zero, the parallel minimax cuts down on time
+exponentially to where it nears its asymptote around a cut-off between
+3 and 4.  This is expected because at a cutoff of 0 the parallel minimax
+is parallizing everything until it is down to one move.  As we increase 
+the cut-off we get closer to the sweet spot around 3 - 4 where solving
+the last 3 - 4 layers sequentially is faster than creating new
+threads for each one. We start to the time increasing at 4 where increasing
+the cut-off any more makes the parallelism less effective and the algorithm 
+closer to the simple minimax. After a cut-off of 5, the increased cut-off
+has no effect due to the depth of 5, if we thought about it more ahead of time
+we would have realized there was no reason to test past a cut-off of 5.
+
+![](Parallel Minimax - Sequential Cut-off (Ply).png)
 
 #### Comparing The Algorithms ####
 Now that you have found an optimal cut-off, 
