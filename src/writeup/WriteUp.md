@@ -18,7 +18,7 @@
   so the tests take less time, or maybe do something on parallized tests.
 
 - Did you enjoy the project?
-  Yes, I thought there was a good amount of interesting algorithms that 
+  Yes, we thought there was a good amount of interesting algorithms that 
   we implemented. It was cool to see how they are applied to games like 
   chess and tic tac toe.
     
@@ -76,7 +76,8 @@ like there is a substantial difference between the three algorithms?
 Our conclusions were on similar magnitudes as our estimates. Parallel minimax
 and minimax have the same number of nodes because they are the same algorithm,
 just one uses parallelism. AlphaBeta is clearly much faster as it looks at less
-nodes. I was surprised at how fast alphaBeta was at ply 4 and 5.  
+nodes. I was surprised at how fast alphaBeta was at ply 4 and 5 due to how much
+of the nodes it can avoid checking.  
 
 ### Optimizing Experiments ###
 THE EXPERIMENTS IN THIS SECTION WILL TAKE A LONG TIME TO RUN. 
@@ -116,7 +117,12 @@ cut-offs, time all three of your algorithms
 for each of the three boards.
 
 Plot your results and discuss anything surprising about your results here.
-<pre>TODO: Do the experiment; discuss the results (possibly with pretty graphs!)</pre>
+For all 3 board states, early, mid, and end game, minimax was much slower than
+the other two algorithms as expected. Alphabeta and Parallel Minimax were comparable
+but Alphabeta was surprisingly always faster, although parallelization speed ups how
+long it takes to check every nodes, the ammount of nodes that the Alphabeta algorithm 
+doesn't have to look at counteracts that. We imagine if the Alphabeta was parallelized
+if would be even faster.
 
 |      Algorithm     | Early Game | Mid Game | End Game |
 | :----------------: |:----------:|:--------:|:--------:|
