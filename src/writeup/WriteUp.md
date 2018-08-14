@@ -119,9 +119,13 @@ Plot your results and discuss anything surprising about your results here.
 
 |      Algorithm     | Early Game | Mid Game | End Game |
 | :----------------: |:----------:|:--------:|:--------:|
-|       Minimax      |            |          |          |
-|  Parallel Minimax  |            |          |          |
-|      Alphabeta     |            |          |          |
+|       Minimax      |     3278354721     |     78774123175    |      7749497496   |
+|  Parallel Minimax  |     993802637      |     23650612556    |      2508425325   |
+|      Alphabeta     |     124243360      |     1029432082     |      283095789    |
+
+![](Minimax, Parallel Minimax, Alphabeta - Optimized Cutoff.png)
+![](Minimax, Parallel Minimax, Alphabeta - Optimized Cutoff (1).png)
+![](Minimax, Parallel Minimax, Alphabeta - Optimized Cutoff (2).png)
 
 
 ### Beating Traffic ###
