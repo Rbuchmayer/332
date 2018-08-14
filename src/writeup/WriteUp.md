@@ -122,7 +122,7 @@ the other two algorithms as expected. Alphabeta and Parallel Minimax were compar
 but Alphabeta was surprisingly always faster, although parallelization speed ups how
 long it takes to check every nodes, the ammount of nodes that the Alphabeta algorithm 
 doesn't have to look at counteracts that. We imagine if the Alphabeta was parallelized
-if would be even faster.
+it would be even faster.
 
 |      Algorithm     | Early Game | Mid Game | End Game |
 | :----------------: |:----------:|:--------:|:--------:|
