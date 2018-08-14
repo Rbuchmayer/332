@@ -56,10 +56,8 @@ the experiment, do the following:
    implementation).  Make a pretty graph of your results (link to it from
    here) and fill in the table here as well:
 
-![](Minimax, Parallel Minimax, Alphabeta_ Ply 1.png)
-![](Minimax, Parallel Minimax, Alphabeta_ Ply 2.png)
-![](Minimax, Parallel Minimax, Alphabeta_ Ply 3.png)
-![](Minimax, Parallel Minimax, Alphabeta_ Ply 4.png)
+![](Minimax, Parallel Minimax, Alphabeta_ Ply 1.png) ![](Minimax, Parallel Minimax, Alphabeta_ Ply 2.png)
+![](Minimax, Parallel Minimax, Alphabeta_ Ply 3.png) ![](Minimax, Parallel Minimax, Alphabeta_ Ply 4.png)
 ![](Minimax, Parallel Minimax, Alphabeta_ Ply 5.png)
 
 |      Algorithm     | 1-ply    | 2-ply     | 3-ply      | 4-ply          | 5-ply |
